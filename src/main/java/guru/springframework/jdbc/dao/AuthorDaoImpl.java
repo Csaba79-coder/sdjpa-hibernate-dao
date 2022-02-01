@@ -41,6 +41,8 @@ public class AuthorDaoImpl implements AuthorDao {
         entityManager.flush();
         entityManager.getTransaction().commit();
 
+        entityManager.close();
+
         return author;
     }
 
@@ -53,6 +55,8 @@ public class AuthorDaoImpl implements AuthorDao {
         entityManager.flush();
         entityManager.clear();
 
+        entityManager.close();
+
         return author;
     }
 
@@ -64,6 +68,7 @@ public class AuthorDaoImpl implements AuthorDao {
         entityManager.remove(author);
         entityManager.flush();
         entityManager.getTransaction().commit();
+        entityManager.close();
     }
 
     private EntityManager getEntityManager(){
