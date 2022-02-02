@@ -19,19 +19,6 @@ public class AuthorDaoImpl implements AuthorDao {
     }
 
     @Override
-    public List<Author> findAll() {
-        EntityManager entityManager = getEntityManager();
-
-        try{
-            TypedQuery<Author> typedQuery = entityManager.createNamedQuery("author_find_all", Author.class);
-
-            return typedQuery.getResultList();
-        } finally {
-            entityManager.close();
-        }
-    }
-
-    @Override
     public Author getById(Long id) {
         return getEntityManager().find(Author.class, id);
     }
@@ -114,6 +101,20 @@ public class AuthorDaoImpl implements AuthorDao {
             entityManager.close();
         }
     }
+
+    @Override
+    public List<Author> findAll() {
+        EntityManager entityManager = getEntityManager();
+
+        try{
+            TypedQuery<Author> typedQuery = entityManager.createNamedQuery("author_find_all", Author.class);
+
+            return typedQuery.getResultList();
+        } finally {
+            entityManager.close();
+        }
+    }
+
 
 
     private EntityManager getEntityManager(){
