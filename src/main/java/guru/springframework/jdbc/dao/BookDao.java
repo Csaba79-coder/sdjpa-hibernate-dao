@@ -14,4 +14,5 @@ public interface BookDao {
 
     void deleteBookById(Long id);
 
+    Book findByISBN(String isbn);
 }
