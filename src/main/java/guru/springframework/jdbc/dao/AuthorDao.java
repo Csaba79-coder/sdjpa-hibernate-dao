@@ -19,4 +19,6 @@ public interface AuthorDao {
     List<Author> listAuthorByLastNameLike(String lastName);
 
     List<Author> findAll();
+
+    Author findAuthorByNameCriteria(String craig, String walls);
 }
