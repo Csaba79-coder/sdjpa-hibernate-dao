@@ -2,6 +2,8 @@ package guru.springframework.jdbc.dao;
 
 import guru.springframework.jdbc.domain.Book;
 
+import java.util.List;
+
 public interface BookDao {
 
     Book getById(Long id);
@@ -15,4 +17,8 @@ public interface BookDao {
     void deleteBookById(Long id);
 
     Book findByISBN(String isbn);
+
+    List<Book> findAll();
+
+    Book findBookByTitleCriteria(String title);
 }
