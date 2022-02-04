@@ -2,6 +2,9 @@ package guru.springframework.jdbc.domain;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.NamedQueries;
+import org.hibernate.annotations.NamedQuery;
+
 @NamedQueries(value = {
         @NamedQuery(name = "author_find_all", query = "FROM Author"),
         @NamedQuery(name = "find_by_name", query = "FROM Author a WHERE a.firstName = :first_name and a.lastName = :last_name")

@@ -1,11 +1,18 @@
 package guru.springframework.jdbc.domain;
 
+import org.hibernate.annotations.NamedQueries;
+import org.hibernate.annotations.NamedQuery;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Objects;
 
+@NamedQueries({
+        @NamedQuery(name = "find_all_books", query = "FROM Book"),
+        @NamedQuery(name = "find_by_title", query = "FROM Book b where b.title = :title")
+})
 @Entity
 public class Book {
 
